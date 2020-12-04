@@ -1,0 +1,23 @@
+body{
+	overflow-x: hidden;
+}
+.divto{
+	display: flex;
+}
+.menu_trai{
+	/*background-color: #ccc;*/
+	height: 500px;
+	margin-top: 30px;
+}
+.danh_sach_sp{
+	/*background-color: yellow;*/
+	height:all;
+}
+.flex-column li{
+	border: 1px solid;
+	/*color*/: black!important;
+}
+.flex-column li:hover{
+	background-color: #10E0E0;
+	/*font-style: white;*/
+}

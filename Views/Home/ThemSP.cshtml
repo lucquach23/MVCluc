@@ -1,0 +1,48 @@
+﻿@using MVCluc.Models
+@model MVCluc.Models.SanPham
+@{
+	ViewBag.Title = "ThemSP";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	
+}
+
+
+<div style="border:1px solid blue;margin-top:30px;" class="container col-md-4">
+	@using (Html.BeginForm("ThemSP", "Home",FormMethod.Post))
+	{
+	<div class="form-group">
+		<label for="exampleFormControlSelect1">Loại sản phẩm</label>
+		@*@Html.DropDownList("MaLoai", (IEnumerable<SelectListItem>)ViewBag.cateList, htmlAttributes: new { @class = "form-control" })*@
+		@Html.DropDownList("MaLoai", (IEnumerable<SelectListItem>)ViewBag.Ten,"Chọn mã loại", htmlAttributes: new { @class = "form-control" })
+
+	</div>
+	<div class="form-group">
+		<label for="inputAddress">Tên sản phẩm</label>
+		@Html.TextBoxFor(model => model.Ten, htmlAttributes:new  { @class = "form-control" } )
+		@*<input type="text" class="form-control" id="ten">*@
+	</div>
+	<div class="form-group">
+		<label for="inputAddress">Ảnh</label>
+		@*@Html.Se(model => model.Anh, htmlAttributes: new { @class = "form-control" })*@
+		@Html.TextBoxFor(model => model.Anh, null, new { type = "file", @class = "input-file" })
+	</div>
+	<div class="form-group">
+		<label for="inputAddress">Giá sản phẩm	</label>
+		@Html.TextBoxFor(model => model.Gia, htmlAttributes: new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		<label for="inputAddress">Khuyến mãi %</label>
+		@Html.TextBoxFor(model => model.KhuyenMai, htmlAttributes: new { @class = "form-control" })
+	</div>
+		<div class="form-group">
+			<label for="exampleFormControlTextarea1">Mô tả</label>
+			@Html.TextAreaFor(model => model.Mota, htmlAttributes: new { @class = "form-control" })
+		</div>
+		<button type="submit" class="btn btn-info">Thêm mới</button>
+	}
+
+
+
+</div>
+<br />
+

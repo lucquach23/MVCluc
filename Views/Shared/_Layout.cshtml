@@ -1,0 +1,97 @@
+﻿@using MVCluc.Models
+@{ 
+	List<LoaiSP> list_loaisp = (List<LoaiSP>)ViewBag.listcate;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="/Asset/style_home.css" />
+	<link rel="stylesheet" href="/Asset/bt/css/bootstrap.min.css" />
+</head>
+<body>
+
+	<a href="@Url.Action("ThemSP", "Home")" class="btn btn-success">Thêm mới sản phẩm</a>
+	<div class="container col-md-12 divto">
+		<div class="menu_trai col-md-3">
+			<div class="text-center">Danh mục loại sản phẩm</div>
+			<ul class="nav flex-column">
+				@foreach (var item in list_loaisp)
+				{
+					<li class="nav-item">
+						<a class="nav-link active" href="@Url.Action("Index", "Home", new { @maloai = item.MaLoai })">@item.Ten</a>
+					</li>
+				}
+				@*<li class="nav-item">
+					<a class="nav-link active" href="#">Active</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Link</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Disabled</a>
+				</li>*@
+			</ul>
+		</div>
+		@RenderBody()
+
+	<footer style="display:none;background-color: #ccc" class="page-footer font-small blue pt-4">
+		<div class="container-fluid text-center text-md-left">
+			<div class="row">
+				<div class="col-md-6 mt-md-0 mt-3">
+					<h5 class="text-uppercase">Footer Content</h5>
+					<p>Here you can use rows and columns to organize your footer content.</p>
+				</div>
+				<hr class="clearfix w-100 d-md-none pb-3">
+				<div class="col-md-3 mb-md-0 mb-3">
+					<h5 class="text-uppercase">Links</h5>
+					<ul class="list-unstyled">
+						<li>
+							<a href="#!">Link 1</a>
+						</li>
+						<li>
+							<a href="#!">Link 2</a>
+						</li>
+						<li>
+							<a href="#!">Link 3</a>
+						</li>
+						<li>
+							<a href="#!">Link 4</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-3 mb-md-0 mb-3">
+					<h5 class="text-uppercase">Links</h5>
+					<ul class="list-unstyled">
+						<li>
+							<a href="#!">Link 1</a>
+						</li>
+						<li>
+							<a href="#!">Link 2</a>
+						</li>
+						<li>
+							<a href="#!">Link 3</a>
+						</li>
+						<li>
+							<a href="#!">Link 4</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright text-center py-3">
+			© 2020 Copyright:
+			<a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+		</div>
+	</footer>
+	<script src="/Asset/bt/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-latest.js"></script>
+</body>
+</html>

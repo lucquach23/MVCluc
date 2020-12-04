@@ -1,0 +1,50 @@
+﻿@using MVCluc.Models
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	List<SanPham> lsp = (List<SanPham>)ViewBag.list_sp;
+	
+}
+
+<div style="padding-top: 30px" class="danh_sach_sp col-md-9">
+	<div class="container-fluid padding">
+		<div class="row padding">
+			@foreach (var item in lsp)
+			{
+				<div style="margin-top: 10px" class="col-md-4">
+					<div style="height: 400px" class="card">
+						<p style="position: absolute; background-color: orange; border-radius: 100%;margin-top: 20px">
+							-@item.KhuyenMai%
+						</p>
+						<a href="@Url.Action("ViewDetail", "Home", new { @MaSP = item.MaSP })">
+							<img style="height: 250px;" class="card-img-top" src="/Asset/my-picture/@item.Anh">
+						</a>
+						<div class="card-body">
+							<p class="card-title text-center">
+								@item.Ten
+								<br/>
+								<strike style="color: red" class="text-center">@(string.Format("{0:#,##0}", item.Gia))đ</strike>
+								<span style="color: red" class="text-center">
+									@{
+										double? price = item.Gia - item.Gia * item.KhuyenMai * 1.0 / 100;
+									}
+									@(string.Format("{0:#,##0}", price))đ
+								</span>
+
+
+<button style="border: 1px solid blue; color: blue;" class="btn btn btn-light">
+									Mua hàng
+								</button>
+							</p>
+						</div>
+					</div>
+				</div>
+									}
+
+		</div>
+	</div>
+</div>
+
+
+
